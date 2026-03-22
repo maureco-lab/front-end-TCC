@@ -1,0 +1,33 @@
+/* Estilos extraídos do seu arquivo original */
+.agenda-cards {
+    margin-top: 30px;
+    display: grid;
+    /* Define 1 coluna no mobile e 2 ou 3 no desktop automaticamente */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 15px;
+}
+
+.card {
+    background: var(--bg-dark); /* Utiliza a cor global definida no base.css */
+    padding: 20px;
+    border-radius: 12px;
+    transition: var(--transition); /* Utiliza a transição global */
+    border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.card h3 {
+    color: var(--purple);
+    margin-bottom: 8px;
+    font-size: 1.2rem;
+}
+
+.card p {
+    color: var(--text-main);
+    font-size: 0.95rem;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    background: #1a1a1f;
+    border-color: var(--purple);
+}

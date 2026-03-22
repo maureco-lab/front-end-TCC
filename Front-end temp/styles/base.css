@@ -1,0 +1,95 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --bg-dark: #121214;
+    --bg-body: #0a0a0a;
+    --purple: #9d4edd;
+    --purple-hover: #b072eb;
+    --text-main: #ffffff;
+    --text-gray: #828282;
+    --transition: 0.3s ease;
+}
+
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* HEADER MOBILE */
+.mobile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    background-color: var(--bg-dark);
+    position: fixed;
+    width: 100%;
+    z-index: 800;
+    height: 70px;
+}
+
+.menu-toggle {
+    background: transparent;
+    border: none;
+    color: var(--text-gray);
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.logo-mobile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+
+.logo-mobile h1 {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.logo-mobile .logo-icon {
+    background: var(--purple);
+    padding: 8px;
+    border-radius: 8px;
+    display: flex;
+    color: white;
+}
+
+/* CONTEÚDO */
+.content {
+    padding: 100px 20px;
+}
+
+/* DESKTOP LAYOUT */
+@media (min-width: 992px) {
+
+    body {
+        flex-direction: row;
+    }
+
+    .mobile-header {
+        display: none;
+    }
+
+    .content {
+        padding: 40px;
+        flex: 1;
+    }
+}
+
+
+

@@ -1,0 +1,195 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+:root {
+    --bg-dark: #121214;
+    --bg-body: #0a0a0a;
+    --purple: #9d4edd;
+    --purple-hover: #b072eb;
+    --text-main: #ffffff;
+    --text-gray: #828282;
+    --transition: 0.3s ease;
+}
+
+/* Reset e Fonte Montserrat */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body {
+    background-color: var(--bg-body);
+    color: var(--text-main);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* --- HEADER MOBILE CORRIGIDO --- */
+.mobile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px 20px;
+    background-color: var(--bg-dark);
+    position: fixed;
+    width: 100%;
+    z-index: 800;
+    height: 70px;
+}
+
+.menu-toggle {
+    background: transparent;
+    border: none;
+    color: var(--text-gray);
+    font-size: 1.5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.logo-mobile {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-mobile h1 {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+.logo-mobile .logo-icon {
+    background: var(--purple);
+    padding: 8px;
+    border-radius: 8px;
+    display: flex;
+    color: white;
+}
+
+/* --- SIDEBAR --- */
+.sidebar {
+    position: fixed;
+    left: -300px;
+    width: 280px;
+    height: 100vh;
+    background-color: var(--bg-dark);
+    padding: 24px;
+    display: flex;
+    flex-direction: column;
+    transition: var(--transition);
+    z-index: 1000;
+}
+
+.sidebar.open {
+    left: 0;
+}
+
+.sidebar-top {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 40px;
+    min-height: 50px;
+}
+
+.close-sidebar {
+    background: transparent;
+    border: none;
+    color: var(--text-gray);
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+.sidebar-logo-desktop {
+    display: none;
+    align-items: center;
+    gap: 12px;
+}
+
+.sidebar-logo-desktop .logo-icon {
+    background: var(--purple);
+    padding: 8px 10px;
+    border-radius: 10px;
+    color: white;
+}
+
+.logo-text h1 {
+    font-size: 1.1rem;
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+.logo-text span {
+    font-size: 0.75rem;
+    color: var(--text-gray);
+    font-weight: 400;
+}
+
+/* --- NAVEGAÇÃO E HOVERS --- */
+.sidebar-nav ul {
+    list-style: none;
+}
+
+.sidebar-nav li a {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 14px 16px;
+    color: var(--text-gray);
+    text-decoration: none;
+    border-radius: 12px;
+    margin-bottom: 5px;
+    font-weight: 500;
+    transition: var(--transition);
+}
+
+.sidebar-nav li.active a {
+    background: var(--purple);
+    color: white;
+    font-weight: 600;
+}
+
+.sidebar-nav li a:hover:not(.active) {
+    background: rgba(255, 255, 255, 0.05);
+    color: white;
+    padding-left: 20px;
+}
+
+/* --- RESPONSIVIDADE --- */
+@media (min-width: 992px) {
+    body {
+        flex-direction: row;
+    }
+
+    .mobile-header,
+    .close-sidebar {
+        display: none;
+    }
+
+    .sidebar {
+        position: sticky;
+        top: 0;
+        left: 0;
+    }
+
+    .sidebar-logo-desktop {
+        display: flex;
+    }
+
+    .content {
+        padding: 40px;
+        flex: 1;
+    }
+}
+
+@media (max-width: 991px) {
+    .content {
+        padding: 100px 20px;
+    }
+
+    body:has(.sidebar.open) .menu-toggle {
+        opacity: 0;
+    }
+}
