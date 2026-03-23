@@ -1,0 +1,307 @@
+
+.content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.content-header h1 {
+    font-size: 1.8rem;
+    color: var(--text-main); 
+}
+
+.content-header p {
+    color: var(--text-gray);
+    font-size: 0.9rem;
+}
+
+/* Botão Novo Profissional (Roxo do Protótipo) */
+.btn-primary {
+    background-color: #9d4edd; /* Roxo vibrante */
+    color: #fff;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 10px;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.btn-primary:hover {
+    background-color: #7b2cbf;
+}
+
+/* 2. GRID E ESTADO VAZIO */
+.profissionais-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
+    gap: 20px;
+}
+
+.empty-state {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 80px;
+    background: rgba(255, 255, 255, 0.02);
+    border: 2px dashed #333;
+    border-radius: 20px;
+    color: #666;
+}
+
+.empty-state i {
+    font-size: 3rem;
+    margin-bottom: 15px;
+    opacity: 0.2;
+}
+
+/* 3. CARDS (Estilo conforme imagem profissionais.png) */
+.pro-card {
+    background: #121214;
+    padding: 24px;
+    border-radius: 16px;
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    transition: 0.3s;
+}
+
+.pro-card:hover {
+    border-color: #9d4edd;
+}
+
+.pro-header {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.avatar {
+    width: 60px;
+    height: 60px;
+    background: #9d4edd;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.pro-title h3 {
+    font-size: 1.2rem;
+    margin-bottom: 4px;
+}
+
+.badge {
+    background: #2a2a2e;
+    color: #a8a8b3;
+    padding: 4px 12px;
+    border-radius: 6px;
+    font-size: 0.75rem;
+}
+
+.pro-actions {
+    margin-left: auto;
+    display: flex;
+    gap: 12px;
+}
+
+.pro-actions button {
+    background: none;
+    border: none;
+    color: #444;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.pro-actions button:hover { color: #9d4edd; }
+.pro-actions .btn-del:hover { color: #ff4757; }
+
+.pro-details p {
+    color: #a8a8b3;
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.pro-details i { color: #9d4edd; width: 16px; }
+
+/* 4. MODAL (Estilo conforme imagem profissionais modal.png) */
+.modal-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(4px);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 2000;
+}
+
+.modal-overlay.active { display: flex; }
+
+.modal {
+    background: #121214;
+    width: 90%;
+    max-width: 550px;
+    padding: 32px;
+    border-radius: 16px;
+    border: 1px solid #333;
+}
+
+.modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.modal-header h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 1.4rem;
+}
+
+.close-modal {
+    background: none;
+    border: none;
+    color: #666;
+    font-size: 1.5rem;
+    cursor: pointer;
+}
+
+/* Organização em Colunas no Modal */
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.form-group { margin-bottom: 20px; }
+
+.form-group label {
+    display: block;
+    color: #fff;
+    margin-bottom: 8px;
+    font-size: 0.9rem;
+    font-weight: 600;
+}
+
+.form-group input {
+    width: 100%;
+    background: #1a1a1e;
+    border: 1px solid #333;
+    padding: 12px;
+    border-radius: 8px;
+    color: #fff;
+    outline: none;
+}
+
+.form-group input:focus { border-color: #9d4edd; }
+
+/* Seletor de Dias (Roxo quando ativo) */
+.work-days-selector {
+    display: flex;
+    gap: 8px;
+    margin-top: 5px;
+}
+
+.day-btn {
+    flex: 1;
+    padding: 10px;
+    background: #1a1a1e;
+    border: 1px solid #333;
+    border-radius: 8px;
+    color: #888;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.day-btn.active {
+    background: #9d4edd;
+    color: #fff;
+    border-color: #9d4edd;
+}
+
+/* Switch de Profissional Ativo */
+.switch-container {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 44px;
+    height: 22px;
+}
+
+.switch input { opacity: 0; width: 0; height: 0; }
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    inset: 0;
+    background-color: #333;
+    transition: .4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 16px;
+    width: 16px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider { background-color: #9d4edd; }
+input:checked + .slider:before { transform: translateX(22px); }
+
+/* Rodapé do Modal */
+.modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.btn-cancel {
+    background: #fff;
+    color: #000;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+}
+
+.btn-save {
+    background: #9d4edd;
+    color: #fff;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .form-row { grid-template-columns: 1fr; }
+    .profissionais-grid { grid-template-columns: 1fr; }
+    .work-days-selector { flex-wrap: wrap; }
+}

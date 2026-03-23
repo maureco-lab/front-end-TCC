@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <title>Profissionais - SaloonSave</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles/base.css">
+    <link rel="stylesheet" href="/styles/sidebar.css">
+    <link rel="stylesheet" href="/styles/profissionais.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div id="header-container"></div>
+    <div id="sidebar-container"></div>
+
+    <main class="content">
+        <header class="content-header">
+            <div>
+                <h1>Profissionais</h1>
+                <p id="proCount">0 profissionais</p>
+            </div>
+            <button class="btn-primary" id="openModal">
+                <i class="fas fa-plus"></i> Novo Profissional
+            </button>
+        </header>
+
+        <section class="profissionais-grid" id="profissionaisGrid">
+            </section>
+    </main>
+
+    <div class="modal-overlay" id="modalOverlay">
+        <div class="modal">
+            <div class="modal-header">
+                <h3 id="modalTitle">Novo Profissional</h3>
+                <button class="close-modal" id="closeModal">&times;</button>
+            </div>
+            <form id="proForm">
+                <input type="hidden" id="editIndex">
+                
+                <div class="form-group">
+                    <label>Nome Completo *</label>
+                    <input type="text" id="nomePro" required placeholder="Ex: João Silva">
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Telefone</label>
+                        <input type="text" id="telPro" placeholder="(00) 00000-0000">
+                    </div>
+                    <div class="form-group">
+                        <label>E-mail</label>
+                        <input type="email" id="emailPro" placeholder="contato@exemplo.com">
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group">
+                        <label>Especialidade</label>
+                        <input type="text" id="cargoPro" placeholder="Ex: Barbeiro">
+                    </div>
+                    <div class="form-group">
+                        <label>Comissão (%)</label>
+                        <input type="number" id="comissaoPro" value="0">
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label>Dias de Trabalho</label>
+                    <div class="work-days-selector" id="daysSelector">
+                        <button type="button" class="day-btn" data-day="Seg">Seg</button>
+                        <button type="button" class="day-btn" data-day="Ter">Ter</button>
+                        <button type="button" class="day-btn" data-day="Qua">Qua</button>
+                        <button type="button" class="day-btn" data-day="Qui">Qui</button>
+                        <button type="button" class="day-btn" data-day="Sex">Sex</button>
+                        <button type="button" class="day-btn" data-day="Sáb">Sáb</button>
+                        <button type="button" class="day-btn" data-day="Dom">Dom</button>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn-cancel" id="cancelBtn">Cancelar</button>
+                    <button type="submit" class="btn-save">Salvar</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="/js/loadComponents.js"></script>
+    <script src="/js/profissionais.js"></script>
+</body>
+</html>
