@@ -330,18 +330,57 @@ input:checked + .slider:before { transform: translateX(22px); }
 
 /* Responsividade */
 @media (max-width: 768px) {
-    .form-row { grid-template-columns: 1fr; }
-    .profissionais-grid { grid-template-columns: 1fr; }
-    .work-days-selector { flex-wrap: wrap; }
-
     .content-header {
         flex-direction: column;
-        align-items: flex-start; 
-        gap: 20px; 
+        align-items: flex-start;
+        gap: 15px;
+        margin-bottom: 25px;
     }
 
     .btn-primary {
-        width: 100%; 
-        justify-content: center; 
+        width: 100%;
+        justify-content: center;
+        background-color: #9d4edd !important; 
+        border-radius: 10px !important;
+        padding: 14px;
+        display: flex;
+        color: #fff !important;
+    }
+
+    .modal {
+        width: 95%;
+        padding: 24px;
+        margin: 10px;
+        max-height: 95vh;
+        overflow-y: auto;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr; /* Coluna única no mobile */
+        gap: 0;
+    }
+
+    .work-days-selector {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+    }
+
+    .day-btn {
+        padding: 12px 0;
+    }
+
+    .modal-footer {
+        flex-direction: column-reverse;
+        gap: 12px;
+    }
+
+    .btn-cancel, .btn-save {
+        width: 100%;
+        padding: 15px;
+    }
+
+    .profissionais-grid {
+        grid-template-columns: 1fr;
     }
 }
