@@ -299,9 +299,49 @@ input:checked + .slider:before { transform: translateX(22px); }
     cursor: pointer;
 }
 
+/* --- AJUSTE DOS DIAS NO CARD --- */
+.work-days {
+    display: flex;
+    gap: 6px;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #202024;
+    flex-wrap: wrap;
+}
+
+/* Tag individual de cada dia no card */
+.day-tag {
+    background: #1a1a1e; /* Fundo escuro para dias inativos */
+    color: #444;
+    padding: 6px 8px;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    min-width: 38px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+/* Estilo para quando o dia está ativo no card */
+.day-tag.active {
+    background: rgba(157, 78, 221, 0.2); /* Roxo suave de fundo */
+    color: #9d4edd; /* Texto roxo vibrante */
+}
+
 /* Responsividade */
 @media (max-width: 768px) {
     .form-row { grid-template-columns: 1fr; }
     .profissionais-grid { grid-template-columns: 1fr; }
     .work-days-selector { flex-wrap: wrap; }
+
+    .content-header {
+        flex-direction: column;
+        align-items: flex-start; 
+        gap: 20px; 
+    }
+
+    .btn-primary {
+        width: 100%; 
+        justify-content: center; 
+    }
 }
