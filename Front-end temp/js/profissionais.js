@@ -1,4 +1,8 @@
 let profissionais = [];
+let proIndexToDelete = null;
+const deleteModal = document.getElementById('deleteModal');
+const confirmDeleteBtn = document.getElementById('confirmDelete');
+const cancelDeleteBtn = document.getElementById('cancelDelete');
 const grid = document.getElementById('profissionaisGrid');
 const modal = document.getElementById('modalOverlay');
 const form = document.getElementById('proForm');
@@ -15,13 +19,13 @@ dayButtons.forEach(btn => {
 function renderizar() {
     grid.innerHTML = '';
     const diasSemana = ['Seg', 'Ter', 'Qua', 'Qui', 'Sex', 'Sáb', 'Dom'];
-    
+
     if (profissionais.length === 0) {
         grid.innerHTML = `
             <div class="empty-state">
                 <i class="fas fa-user-slash" style="font-size: 3rem; margin-bottom: 20px; opacity: 0.1;"></i>
                 <p style="font-size: 1.2rem; color: #666;">Nenhum profissional cadastrado.</p>
-                <span style="color: #444;">Adicione colaboradores para gerir a sua equipa.</span>
+                <span style="color: #444;">Adicione colaboradores para gerir a sua equipe.</span>
             </div>`;
         document.getElementById('proCount').innerText = "0 profissionais";
         return;
@@ -58,7 +62,7 @@ function renderizar() {
         `;
         grid.appendChild(card);
     });
-    
+
     document.getElementById('proCount').innerText = `${profissionais.length} profissionais`;
 }
 
@@ -92,12 +96,13 @@ function fecharModal() {
 
 function editar(index) {
     const pro = profissionais[index];
+    document.getElementById('modalTitle').innerText = "Editar Profissional";
     document.getElementById('nomePro').value = pro.nome;
     document.getElementById('telPro').value = pro.tel;
     document.getElementById('cargoPro').value = pro.cargo;
     document.getElementById('comissaoPro').value = pro.comissao;
     document.getElementById('editIndex').value = index;
-    
+
     dayButtons.forEach(btn => {
         if (pro.dias.includes(btn.innerText)) btn.classList.add('active');
     });
@@ -106,13 +111,35 @@ function editar(index) {
 }
 
 function remover(index) {
-    if(confirm("Deseja excluir este profissional?")) {
-        profissionais.splice(index, 1);
-        renderizar();
-    }
+    proIndexToDelete = index;
+    deleteModal.classList.add('active');
 }
 
-document.getElementById('openModal').onclick = () => modal.classList.add('active');
+cancelDeleteBtn.onclick = () => {
+    deleteModal.classList.remove('active');
+    proIndexToDelete = null;
+};
+
+confirmDeleteBtn.onclick = () => {
+    if (proIndexToDelete !== null) {
+        profissionais.splice(proIndexToDelete, 1);
+        renderizar();
+        deleteModal.classList.remove('active');
+        proIndexToDelete = null;
+    }
+};
+
+deleteModal.onclick = (e) => {
+    if (e.target === deleteModal) {
+        deleteModal.classList.remove('active');
+    }
+};
+
+
+document.getElementById('openModal').onclick = () => {
+    document.getElementById('modalTitle').innerText = "Novo Profissional";
+    modal.classList.add('active');
+};
 document.getElementById('closeModal').onclick = fecharModal;
 document.getElementById('cancelBtn').onclick = fecharModal;
 

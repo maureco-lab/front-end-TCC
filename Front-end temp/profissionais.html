@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-br">
+
 <head>
     <meta charset="UTF-8">
     <title>Profissionais - SaloonSave</title>
@@ -9,6 +10,7 @@
     <link rel="stylesheet" href="/styles/profissionais.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+
 <body>
 
     <div id="header-container"></div>
@@ -26,7 +28,7 @@
         </header>
 
         <section class="profissionais-grid" id="profissionaisGrid">
-            </section>
+        </section>
     </main>
 
     <div class="modal-overlay" id="modalOverlay">
@@ -37,7 +39,7 @@
             </div>
             <form id="proForm">
                 <input type="hidden" id="editIndex">
-                
+
                 <div class="form-group">
                     <label>Nome Completo *</label>
                     <input type="text" id="nomePro" required placeholder="Ex: João Silva">
@@ -86,7 +88,25 @@
         </div>
     </div>
 
+    <div id="deleteModal" class="modal-overlay">
+        <div class="modal confirm-modal">
+            <div class="modal-header">
+                <h3><i class="fas fa-exclamation-triangle" style="color: #ff4757;"></i> Excluir Profissional</h3>
+            </div>
+            <div class="modal-body" style="margin: 20px 0;">
+                <p style="color: #a8a8b3; line-height: 1.5;">
+                    Tem certeza que deseja remover este profissional? Esta ação não pode ser desfeita.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button id="cancelDelete" class="btn-cancel">Cancelar</button>
+                <button id="confirmDelete" class="btn-save" style="background: #ff4757;">Excluir</button>
+            </div>
+        </div>
+    </div>
+
     <script src="/js/loadComponents.js"></script>
     <script src="/js/profissionais.js"></script>
 </body>
+
 </html>

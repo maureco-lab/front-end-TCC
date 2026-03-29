@@ -1,4 +1,6 @@
-
+/* ============================================================
+   1. CABEÇALHO DA PÁGINA (Título e Ações Superiores)
+   ============================================================ */
 .content-header {
     display: flex;
     justify-content: space-between;
@@ -16,9 +18,9 @@
     font-size: 0.9rem;
 }
 
-/* Botão Novo Profissional (Roxo do Protótipo) */
+/* --- BOTÃO "NOVO PROFISSIONAL" (Roxo do Protótipo) --- */
 .btn-primary {
-    background-color: #9d4edd; /* Roxo vibrante */
+    background-color: #9d4edd; /* Roxo vibrante principal */
     color: #fff;
     border: none;
     padding: 12px 24px;
@@ -35,7 +37,9 @@
     background-color: #7b2cbf;
 }
 
-/* 2. GRID E ESTADO VAZIO */
+/* ============================================================
+   2. GRID DE LAYOUT E ESTADO VAZIO
+   ============================================================ */
 .profissionais-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
@@ -58,7 +62,9 @@
     opacity: 0.2;
 }
 
-/* 3. CARDS (Estilo conforme imagem profissionais.png) */
+/* ============================================================
+   3. CARDS DOS PROFISSIONAIS (Visual da Listagem)
+   ============================================================ */
 .pro-card {
     background: #121214;
     padding: 24px;
@@ -132,7 +138,36 @@
 
 .pro-details i { color: #9d4edd; width: 16px; }
 
-/* 4. MODAL (Estilo conforme imagem profissionais modal.png) */
+/* --- DIAS DE TRABALHO DENTRO DO CARD --- */
+.work-days {
+    display: flex;
+    gap: 6px;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px solid #202024;
+    flex-wrap: wrap;
+}
+
+.day-tag {
+    background: #1a1a1e;
+    color: #444;
+    padding: 6px 8px;
+    border-radius: 6px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    min-width: 38px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.day-tag.active {
+    background: rgba(157, 78, 221, 0.2);
+    color: #9d4edd;
+}
+
+/* ============================================================
+   4. MODAIS (Cadastro e Edição)
+   ============================================================ */
 .modal-overlay {
     position: fixed;
     inset: 0;
@@ -177,7 +212,7 @@
     cursor: pointer;
 }
 
-/* Organização em Colunas no Modal */
+/* --- FORMULÁRIO E INPUTS --- */
 .form-row {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -206,7 +241,7 @@
 
 .form-group input:focus { border-color: #9d4edd; }
 
-/* Seletor de Dias (Roxo quando ativo) */
+/* --- SELETOR DE DIAS (Botões de Seleção) --- */
 .work-days-selector {
     display: flex;
     gap: 8px;
@@ -230,7 +265,7 @@
     border-color: #9d4edd;
 }
 
-/* Switch de Profissional Ativo */
+/* --- SWITCH DE STATUS (Ativo/Inativo) --- */
 .switch-container {
     display: flex;
     align-items: center;
@@ -271,7 +306,7 @@
 input:checked + .slider { background-color: #9d4edd; }
 input:checked + .slider:before { transform: translateX(22px); }
 
-/* Rodapé do Modal */
+/* --- BOTÕES DE AÇÃO DO MODAL (Salvar/Cancelar) --- */
 .modal-footer {
     display: flex;
     justify-content: flex-end;
@@ -299,37 +334,28 @@ input:checked + .slider:before { transform: translateX(22px); }
     cursor: pointer;
 }
 
-/* --- AJUSTE DOS DIAS NO CARD --- */
-.work-days {
-    display: flex;
-    gap: 6px;
-    margin-top: 15px;
-    padding-top: 15px;
-    border-top: 1px solid #202024;
-    flex-wrap: wrap;
-}
-
-/* Tag individual de cada dia no card */
-.day-tag {
-    background: #1a1a1e; /* Fundo escuro para dias inativos */
-    color: #444;
-    padding: 6px 8px;
-    border-radius: 6px;
-    font-size: 0.7rem;
-    font-weight: 600;
-    min-width: 38px;
+/* ============================================================
+   5. MODAL DE CONFIRMAÇÃO (Exclusão)
+   ============================================================ */
+.confirm-modal {
+    max-width: 400px !important;
     text-align: center;
-    transition: 0.3s;
 }
 
-/* Estilo para quando o dia está ativo no card */
-.day-tag.active {
-    background: rgba(157, 78, 221, 0.2); /* Roxo suave de fundo */
-    color: #9d4edd; /* Texto roxo vibrante */
+.confirm-modal .modal-header {
+    justify-content: center;
 }
 
-/* Responsividade */
+.confirm-modal .modal-footer {
+    justify-content: center;
+    gap: 15px;
+}
+
+/* ============================================================
+   6. RESPONSIVIDADE (Ajustes para Mobile)
+   ============================================================ */
 @media (max-width: 768px) {
+    /* Ajuste do Cabeçalho para não sobrepor */
     .content-header {
         flex-direction: column;
         align-items: flex-start;
@@ -337,39 +363,38 @@ input:checked + .slider:before { transform: translateX(22px); }
         margin-bottom: 25px;
     }
 
+    /* Botão "Novo Profissional" ocupa largura total */
     .btn-primary {
         width: 100%;
         justify-content: center;
         background-color: #9d4edd !important; 
         border-radius: 10px !important;
-        padding: 14px;
-        display: flex;
-        color: #fff !important;
     }
 
+    /* Ajustes da Janela Modal */
     .modal {
         width: 95%;
         padding: 24px;
-        margin: 10px;
         max-height: 95vh;
         overflow-y: auto;
     }
 
+    /* Formulário vira coluna única */
     .form-row {
-        grid-template-columns: 1fr; /* Coluna única no mobile */
+        grid-template-columns: 1fr;
         gap: 0;
     }
 
+    /* Seletor de dias vira uma grade 4x3 */
     .work-days-selector {
         display: grid;
         grid-template-columns: repeat(4, 1fr);
         gap: 8px;
     }
 
-    .day-btn {
-        padding: 12px 0;
-    }
+    .day-btn { padding: 12px 0; }
 
+    /* Botões do rodapé empilhados */
     .modal-footer {
         flex-direction: column-reverse;
         gap: 12px;
@@ -380,7 +405,18 @@ input:checked + .slider:before { transform: translateX(22px); }
         padding: 15px;
     }
 
+    /* Cards em coluna única */
     .profissionais-grid {
         grid-template-columns: 1fr;
+    }
+
+    /* Ajuste para botões de confirmação ficarem lado a lado mesmo no mobile */
+    .confirm-modal .modal-footer {
+        flex-direction: row; 
+    }
+    
+    .confirm-modal .btn-cancel, 
+    .confirm-modal .btn-save {
+        width: 50%;
     }
 }
